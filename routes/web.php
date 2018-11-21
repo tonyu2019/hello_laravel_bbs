@@ -14,3 +14,6 @@
 Route::get('/', 'Index\IndexController@index');
 
 Auth::routes();
+
+/*用户模块*/
+Route::resource('users', 'Index\UserController')->only('show', 'edit', 'update');
