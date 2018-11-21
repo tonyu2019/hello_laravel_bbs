@@ -16,11 +16,13 @@ class UserController extends BaseController
 
     //用户修改个人资料页面
     public function edit(User $user){
+        $this->authorize('update', $user);
         return view('index.user.edit', compact('user'));
     }
 
     //用户修改行为
     public function update(Request $request, UploadHandler $upload, User $user){
+        $this->authorize('update', $user);
         $this->validate($request, [
             'name'  => 'required|max:30',
             'intro' => 'nullable|max:80',
