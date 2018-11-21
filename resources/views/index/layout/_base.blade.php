@@ -11,6 +11,7 @@
 <body id="app">
 @include('index.layout._header')
 <div class="container">
+    @include('index.layout._message')
     @section('body')
         @show
 </div>

@@ -8,10 +8,10 @@
                     <img class="thumbnail img-responsive" src="https://iocaffcdn.phphub.org/uploads/images/201709/20/1/PtDKbASVcz.png?imageView2/1/w/600/h/600">
                     <hr>
                     <h4><strong>个人简介</strong></h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                    <p>{{$user->intro}}</p>
                     <hr>
                     <h4><strong>注册于</strong></h4>
-                    <p>{{$user->created_at}}</p>
+                    <p>{{$user->created_at->diffForHumans()}}</p>
                 </div>
             </div>
         </div>
