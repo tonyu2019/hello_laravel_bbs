@@ -8394,3 +8394,8 @@ body {
   color: inherit;
 }
 
+.captcha {
+  margin-top: 10px;
+  cursor: pointer;
+}
+

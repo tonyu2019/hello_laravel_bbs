@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -48,9 +48,21 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'name' => 'required|string|max:25',
+            'email' => 'required|string|email|max:50|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'captcha'  => 'required|captcha'
+        ],[
+            'name.required'  => '姓名不能为空',
+            'name.max'  => '姓名过长',
+            'email.required'  => '邮箱不能为空',
+            'email.email'  => '邮箱格式不正确',
+            'email.max'  => '邮箱过长',
+            'email.unique'  => '邮箱已存在',
+            'password.min'  => '密码不能少于6位',
+            'password.confirmed'  => '两次输入密码不一致',
+            'captcha.required'  => '验证码不能为空',
+            'captcha.captcha'   => '验证码不正确'
         ]);
     }
 
