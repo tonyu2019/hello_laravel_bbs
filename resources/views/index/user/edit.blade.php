@@ -7,7 +7,7 @@
                 <div class="panel-heading">修改资料</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('users.update', $user->id) }}">
+                    <form class="form-horizontal" method="POST" action="{{ route('users.update', $user->id) }}" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         {{ method_field('PUT') }}
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -38,11 +38,26 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group{{ $errors->has('intro') ? ' has-error' : '' }}">
                             <label for="password-confirm" class="col-md-4 control-label">个人简介</label>
-
                             <div class="col-md-6">
-                                <textarea class="form-control" name="intro" rows="3"></textarea>
+                                <textarea class="form-control" name="intro" rows="3">{{ old('intro', $user->intro) }}</textarea>
+                                @if ($errors->has('intro'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('intro') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group{{ $errors->has('avatar') ? ' has-error' : '' }}">
+                            <label for="password-confirm" class="col-md-4 control-label">上传头像</label>
+                            <div class="col-md-6">
+                                <input type="file" name="avatar" id="avatar">
+                                @if ($errors->has('avatar'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('avatar') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
 
