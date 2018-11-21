@@ -26,6 +26,6 @@ class UploadHandler{
         //拼接新的文件名
         $file_name=$file_prefix.'_'.uniqid($file_prefix).'.'.$file->getClientOriginalExtension();
         $file->move($upload_path, $file_name);
-        return config('app.url').$folder.'/'.$file_name;
+        return $folder.'/'.$file_name;
     }
 }

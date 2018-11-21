@@ -37,6 +37,10 @@ class UserController extends BaseController
         $user->intro=$request->intro;
         //判断是否上传头像
         if ($request->hasFile('avatar')){
+            //用户上传新头像，如果有老头像，则删除头像
+            if (file_exists(public_path().$user->avatar)){
+                unlink(public_path().$user->avatar);
+                }
             $user->avatar=$upload->save($request->avatar, 'avatar', $user->id);
         }
         $user->save();
