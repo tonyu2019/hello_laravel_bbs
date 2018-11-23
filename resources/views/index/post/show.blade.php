@@ -10,7 +10,7 @@
                     <h3>{{$post->title}}</h3>
                     <small>创建于 {{$post->created_at->diffForHumans()}} / 阅读数 {{$post->view_count}} / 评论数 {{$post->reply_count}}</small>
                     <hr>
-                    <div class="article">{{$post->body}}</div>
+                    <div class="article">{!! $post->body !!}</div>
                 </div>
             </div>
         </div>

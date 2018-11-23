@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Index;
 
+use App\Handlers\UploadHandler;
 use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class postController extends BaseController
 {
@@ -50,6 +52,34 @@ class postController extends BaseController
         $post->user_id=Auth::id();
         $post->save();
         return redirect()->route('posts.show', $post->id)->with('success', '帖子发表成功');
+    }
+
+    /*
+    *上传图片
+    */
+    public function uploadImage(Request $request, UploadHandler $upload){
+        // 初始化返回数据，默认是失败的
+        $data = [
+            'success'   => false,
+            'msg'       => '上传失败哈哈哈哈!',
+            'file_path' => ''
+        ];
+        $validator = Validator::make($request->all(), [
+            'upload_file'=> 'mimes:jpeg,png,gif|dimensions:max_width=1500,max_height=1500|max:2000'
+        ],[
+            'upload_file.mimes' =>'头像必须是 jpeg, png, gif 格式的图片',
+            'upload_file.dimensions' => '图片尺寸不能大于1500',
+            'upload_file.max' => '图片不能超过2000K',
+        ]);
+        if ($validator->fails()){
+            $data['msg']=$validator->errors()->first('upload_file');
+            return $data;
+        }else{
+            $data['file_path']=$upload->save($request->upload_file, 'posts', Auth::id());
+            $data['success']=true;
+            $data['msg']='上传成功';
+            return $data;
+        }
     }
 
     /**

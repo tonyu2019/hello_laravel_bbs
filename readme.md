@@ -15,6 +15,7 @@ git 地址：[https://github.com/barryvdh/laravel-debugbar](https://github.com/b
 #### 4. `Simditor`文本编辑器
 相对于百度的editor小小小，但是功能齐全，界面简洁美观，很喜欢的一个编辑器
 git 地址：[https://github.com/mycolorway/simditor/](https://github.com/mycolorway/simditor/ "https://github.com/mycolorway/simditor/")
+> 注：本次发现这个编辑器还是有bug的，官方并未修复，bug1：图片过大会超过编辑器宽度，特别丑，编辑器css里定义一下max-width；bug2：后台验证图片上传失败编辑框里会给你转化一个base64的图片编码……
 #### 5. `HTMLPurifier` XSS过滤器
 永远不要相信用户的输入，选他就对了
 安装方式：`composer require "mews/purifier:~2.0"`
