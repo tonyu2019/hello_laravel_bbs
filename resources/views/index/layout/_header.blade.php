@@ -14,22 +14,11 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-                <li><a href="#">Link</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Another action</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">One more separated link</a></li>
-                    </ul>
-                </li>
+                <li @if(is_active(url()->current(), route('posts.index',[], false)))class="active"@endif><a href="{{ route('posts.index') }}">话题</a></li>
+                <li @if(is_active(url()->current(), route('categories.show', 1, false)))class="active"@endif><a href="{{ route('categories.show', 1) }}">分享</a></li>
+                <li @if(is_active(url()->current(), route('categories.show', 2, false)))class="active"@endif><a href="{{ route('categories.show', 2) }}">教程</a></li>
+                <li @if(is_active(url()->current(), route('categories.show', 3, false)))class="active"@endif><a href="{{ route('categories.show', 3) }}">问答</a></li>
+                <li @if(is_active(url()->current(), route('categories.show', 4, false)))class="active"@endif><a href="{{ route('categories.show', 4) }}">公告</a></li>
             </ul>
             <form class="navbar-form navbar-left">
                 <div class="form-group">

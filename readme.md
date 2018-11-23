@@ -32,7 +32,21 @@ git 地址：[https://github.com/spatie/laravel-permission](https://github.com/s
 #### 2. `summerblue/generator` 代码生成器
 此插件也是极度不建议使用的，当然高手略过；说说自己的感受，第一次看这个觉得好炫，一句代码，整个模块都有了，可是到后面修改这些文件的时候甚至不知道这些文件的存在，只能死跟教程，一个一个代码打，自己已经是被动学习了，效率太低了，你不知道这一句代码它都做了什么事情，远不如脚踏实地一步一步走，你写过哪段代码很清晰的知道在哪个位置，什么作用。
 #### 3. `hieu-le/active` 代码高亮
-个人感觉导航高亮只是一个判断当前访问链接等不等于对当前导航链接，没必要非得加载个插件吧，让你的Laravel不要吃太胖了
+个人感觉导航高亮只是一个判断当前访问链接等不等于对当前导航链接，没必要非得加载个插件吧，让你的Laravel不要吃太胖了，高亮判断很简单，高手有更好的办法提供下
+```php
+/*
+ * 导航高亮
+ * @param string $path      当前地址栏访问链接
+ * @param string $current   当前url链接
+ * @return boolean 返回true||false
+ * */
+function is_active($path, $current){
+    if (stripos($path, $current)===false){
+        return false;
+    }
+    return true;
+}
+```
 #### 4. `Guzzle` 和 `PinYin` SEO 友好的 URL
 第一个基于百度翻译接口，第二个转换拼音，这种东西得对应需求，有需求就用，没需求还聊个啥。对于我个人来讲，论坛帖子太多了，大家只看标题，链接、url变得是越来越不重要了。如果你是做企业站，页面url需要自定义，但也不是生硬的翻译或者拼音，都是自定义的，这玩意儿也用不上。
 #### 5. `sudo-su`，用户切换

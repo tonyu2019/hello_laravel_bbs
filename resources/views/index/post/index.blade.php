@@ -1,7 +1,13 @@
 @extends('index.layout._base')
+@section('title', isset($category) ? $category->name : '帖子首页')
 @section('body')
     <div class="row">
         <div class="col-lg-9 post-list">
+            @if(isset($category))
+                <div class="alert alert-info" role="alert">
+                    {{ $category->name }} ：{{ $category->description }}
+                </div>
+                @endif
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <ul class="nav nav-pills">
@@ -26,7 +32,7 @@
                                     </a>
                                 </div>
                                 <div class="media-body">
-                                    <a href="#">
+                                    <a href="{{route('categories.show', $post->category_id)}}">
                                         <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
                                         {{$post->category->name}}
                                     </a>
