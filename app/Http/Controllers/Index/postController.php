@@ -13,9 +13,9 @@ class postController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $posts=Post::with('category', 'user')->paginate(20);
+        $posts=Post::withOrder($request->order)->paginate(20);
         return view('index.post.index', compact('posts'));
     }
 
