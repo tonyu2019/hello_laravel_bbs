@@ -11,3 +11,10 @@ function is_active($path, $current){
     }
     return true;
 }
+
+/*
+ * 当前路由生成css类名
+ * */
+function route_class(){
+    return str_replace('.', '-', Route::currentRouteName()).'-page';
+}

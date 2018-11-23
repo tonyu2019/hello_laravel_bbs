@@ -8,7 +8,8 @@
     <title>@yield('title', '默认标题')-BBS</title>
     <link href="{{asset('/css/app.css')}}" rel="stylesheet">
 </head>
-<body id="app">
+<body>
+<div id="app" class="{{route_class()}}">
 @include('index.layout._header')
 <div class="container">
     @include('index.layout._message')
@@ -16,6 +17,7 @@
         @show
 </div>
 @include('index.layout._footer')
+</div>
 <script src="{{asset('/js/app.js')}}"></script>
 </body>
 </html>

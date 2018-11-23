@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Index;
 
 
 use App\Handlers\UploadHandler;
+use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -11,7 +12,8 @@ class UserController extends BaseController
 {
     //用户个人信息页面
     public function show(User $user){
-        return view('index.user.show', compact('user'));
+        $posts=Post::where('user_id', $user->id)->withOrder('dd')->paginate(10);
+        return view('index.user.show', compact('user', 'posts'));
     }
 
     //用户修改个人资料页面
