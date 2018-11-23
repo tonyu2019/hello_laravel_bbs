@@ -15,12 +15,13 @@ use Faker\Generator as Faker;
 
 $factory->define(\App\Models\User::class, function (Faker $faker) {
     $now = \Carbon\Carbon::now()->toDateTimeString();
+    $imgs=['abstract', 'animals', 'business', 'cats', 'city', 'food', 'nightlife', 'fashion', 'people', 'nature', 'sports', 'technics', 'transport'];
     return [
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'password' => bcrypt('admin888'), // secret
         'remember_token' => str_random(10),
-        'avatar'        => $faker->imageUrl(300, 300, 'people'),
+        'avatar'        => '/avatar/aratar_'.rand(1, 1690).'.jpg',
         'intro' => $faker->realText(20),
         'created_at' => $now,
         'updated_at' => $now

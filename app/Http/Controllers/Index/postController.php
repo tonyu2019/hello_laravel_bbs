@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Index;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +15,8 @@ class postController extends Controller
      */
     public function index()
     {
-        return view('index.post.index');
+        $posts=Post::with('category', 'user')->paginate(20);
+        return view('index.post.index', compact('posts'));
     }
 
     /**

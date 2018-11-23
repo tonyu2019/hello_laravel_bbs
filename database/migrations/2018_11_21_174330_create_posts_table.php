@@ -21,7 +21,7 @@ class CreatePostsTable extends Migration
             $table->integer('category_id')->unsigned()->comment('分类ID');
             $table->integer('reply_count')->unsigned()->default(0)->comment('回复总数');
             $table->integer('view_count')->unsigned()->default(0)->comment('查看总数');
-            $table->integer('last_reply_user_id')->unsigned()->comment('最后回复用户ID');
+            $table->integer('last_reply_user_id')->unsigned()->nullable()->comment('最后回复用户ID');
             $table->integer('order')->unsigned()->default(100)->comment('排序');
             $table->text('description')->nullable()->comment('帖子简介');
             $table->string('slug')->nullable()->comment('自定义url');

@@ -20,3 +20,4 @@ Route::resource('users', 'Index\UserController')->only('show', 'edit', 'update')
 
 /*帖子模块*/
 Route::resource('posts', 'Index\PostController');
+
