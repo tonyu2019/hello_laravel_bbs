@@ -23,6 +23,14 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-3">右侧边栏</div>
+        <div class="col-lg-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <a href="{{ route('posts.create') }}" class="btn btn-success btn-block" aria-label="Left Align">
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> 新建帖子
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
     @endsection

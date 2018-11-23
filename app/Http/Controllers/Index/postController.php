@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Index;
 
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
-class postController extends Controller
+class postController extends BaseController
 {
     /**
      * Display a listing of the resource.
@@ -26,7 +27,8 @@ class postController extends Controller
      */
     public function create()
     {
-        //
+        $catetories=Category::all();
+        return view('index.post.create', compact('catetories'));
     }
 
     /**
@@ -35,9 +37,19 @@ class postController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Post $post)
     {
-        //
+        $this->validate($request, [
+            'title'=> 'required|min:6',
+            'category_id'=> 'required',
+            'body'=>    'required: min:6'
+        ]);
+        $post->title=$request->title;
+        $post->category_id=$request->category_id;
+        $post->body=$request->body;
+        $post->user_id=Auth::id();
+        $post->save();
+        return redirect()->route('posts.show', $post->id)->with('success', '帖子发表成功');
     }
 
     /**
@@ -46,9 +58,9 @@ class postController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Post $post)
     {
-        //
+        return view('index.post.show', compact('post'));
     }
 
     /**

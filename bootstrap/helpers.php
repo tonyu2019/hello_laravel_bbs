@@ -18,3 +18,11 @@ function is_active($path, $current){
 function route_class(){
     return str_replace('.', '-', Route::currentRouteName()).'-page';
 }
+
+/*
+ * 生成帖子简介
+ * */
+function post_desc($string, $length=200){
+    $desc=trim(preg_replace('/\r\n|\r|\n/', '', $string));
+    return mb_substr($desc, 0, $length);
+}

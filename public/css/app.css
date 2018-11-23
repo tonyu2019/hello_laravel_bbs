@@ -8469,3 +8469,12 @@ body {
   margin: 12px 0;
 }
 
+.posts-show-page .article {
+  font-size: 15px;
+  line-height: 30px;
+}
+
+.posts-show-page small {
+  color: #adb1af;
+}
+
