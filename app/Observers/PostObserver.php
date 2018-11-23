@@ -10,6 +10,7 @@ use App\Models\Post;
 class PostObserver{
     public function saving(Post $post){
         $post->description=post_desc($post->body);
+        $post->body=clean($post->body, 'user_post_body');
     }
     //每添加成功一个帖子，贴子分类帖子数自增1
     public function saved(Post $post){
