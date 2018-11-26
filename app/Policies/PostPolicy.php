@@ -22,4 +22,8 @@ class PostPolicy
      public function update(User $user, Post $post){
         return $user->id == $post->user_id;
      }
+
+     public function destory(User $user, Post $post){
+         return $user->id == $post->user_id;
+     }
 }
