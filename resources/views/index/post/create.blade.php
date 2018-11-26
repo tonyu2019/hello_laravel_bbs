@@ -41,18 +41,18 @@
                     @endif
                                 {{csrf_field()}}
                     <div class="form-group">
-                        <input type="text" class="form-control" id="title" name="title" placeholder="请填写标题" required>
+                        <input type="text" class="form-control" id="title" name="title" value="{{old('title', $post->title)}}" placeholder="请填写标题" required>
                     </div>
                     <div class="form-group">
                         <select class="form-control" name="category_id">
                             <option value="">请选择分类</option>
                             @foreach($catetories as $category)
-                            <option value="{{$category->id}}">{{$category->name}}</option>
+                            <option value="{{$category->id}}" @if($category->id==$post->category_id)selected @endif>{{$category->name}}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="form-group">
-                        <textarea rows="3" class="form-control" id="editor" name="body" placeholder="请填入至少三个字符的内容。"></textarea>
+                        <textarea rows="3" class="form-control" id="editor" name="body" placeholder="请填入至少三个字符的内容。">{{old('body', $post->body)}}</textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">提交</button>
                 </form>

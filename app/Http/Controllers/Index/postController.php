@@ -27,10 +27,10 @@ class postController extends BaseController
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Post $post)
     {
         $catetories=Category::all();
-        return view('index.post.create', compact('catetories'));
+        return view('index.post.create', compact('post', 'catetories'));
     }
 
     /**
@@ -99,9 +99,11 @@ class postController extends BaseController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        //
+        $this->authorize('update', $post);
+        $catetories=Category::all();
+        return view('index.post.create', compact('post', 'catetories'));
     }
 
     /**
@@ -111,9 +113,14 @@ class postController extends BaseController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
-        //
+        $this->authorize('update', $post);
+        $post->title=$request->title;
+        $post->body=$request->body;
+        $post->category_id=$request->category_id;
+        $post->save();
+        return redirect()->route('posts.show', $post->id)->with('success', '帖子更新成功');
     }
 
     /**

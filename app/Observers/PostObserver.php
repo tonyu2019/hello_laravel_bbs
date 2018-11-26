@@ -13,7 +13,8 @@ class PostObserver{
         $post->body=clean($post->body, 'user_post_body');
     }
     //每添加成功一个帖子，贴子分类帖子数自增1
-    public function saved(Post $post){
+    /*public function saved(Post $post){
+        dd($post);
         Category::where('id', $post->category_id)->increment('post_sums');
-    }
+    }*/
 }

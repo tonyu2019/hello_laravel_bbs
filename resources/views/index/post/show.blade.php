@@ -11,6 +11,13 @@
                     <small>创建于 {{$post->created_at->diffForHumans()}} / 阅读数 {{$post->view_count}} / 评论数 {{$post->reply_count}}</small>
                     <hr>
                     <div class="article">{!! $post->body !!}</div>
+                    <hr>
+                    <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-default btn-xs" role="button">
+                        <i class="glyphicon glyphicon-edit"></i> 编辑
+                    </a>
+                    <a href="#" class="btn btn-default btn-xs" role="button">
+                        <i class="glyphicon glyphicon-trash"></i> 删除
+                    </a>
                 </div>
             </div>
         </div>
