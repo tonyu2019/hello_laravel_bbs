@@ -19,7 +19,8 @@ Auth::routes();
 Route::resource('users', 'Index\UserController')->only('show', 'edit', 'update');
 
 /*帖子模块*/
-Route::resource('posts', 'Index\PostController');
+Route::resource('posts', 'Index\PostController',  ['only' => ['index', 'create', 'store', 'update', 'edit', 'destroy']]);
+Route::get('posts/{slug}', 'Index\PostController@show')->name('posts.show');
 Route::post('upload_image', 'Index\PostController@uploadImage')->name('posts.upload_image');
 
 /*分类模块*/

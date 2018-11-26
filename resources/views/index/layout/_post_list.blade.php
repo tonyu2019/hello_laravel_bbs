@@ -7,8 +7,8 @@
         </div>
         <div class="media-body">
             <div class="media-heading">
-                <a href="{{route('posts.show', $post->id)}}">{{$post->title}}</a>
-                <a class="pull-right" href="{{ route('posts.show', [$post->id]) }}" >
+                <a href="{{$post->link()}}">{{$post->title}}</a>
+                <a class="pull-right" href="{{$post->link()}}" >
                     <span class="badge"> {{ $post->reply_count }} </span>
                 </a>
             </div>

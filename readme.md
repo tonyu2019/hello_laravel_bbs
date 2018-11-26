@@ -50,6 +50,27 @@ function is_active($path, $current){
 ```
 #### 4. `Guzzle` 和 `PinYin` SEO 友好的 URL
 第一个基于百度翻译接口，第二个转换拼音，这种东西得对应需求，有需求就用，没需求还聊个啥。对于我个人来讲，论坛帖子太多了，大家只看标题，链接、url变得是越来越不重要了。如果你是做企业站，页面url需要自定义，但也不是生硬的翻译或者拼音，都是自定义的，这玩意儿也用不上。
+> 个人应企业站的需求，一般自定义的栏目或者文章url我们不会再重复附带id这个字段，虽然这样做更好操作一下，个人的基本思路是路由只传递一个参数slug，控制器方法中查找这个slug，查不到意味着用户输入的是id，不是别名，就查id=slug的。
+```php
+//PostController
+public function show($slug)
+    {
+        $post = Post::where('slug', $slug)->first() ? Post::where('slug', $slug)->first() : Post::where('id', $slug)->first();
+        if (empty($post)) {
+            abort('404', '别瞎折腾了');
+        } else {
+            return view('index.post.show', compact('post'));
+        }
+    }
+//Post模型生成链接
+public function link(){
+        if (empty($this->slug)){
+            return route('posts.show', ['post'=>$this]);
+        }
+        return route('posts.show', ['slug'=>$this->slug]);
+    }
+//这样贴子生成的链接就从例子中的20/hello-world变为hello-world了
+```
 #### 5. `sudo-su`，用户切换
 测试用蛮好。真正上线作用不大
 #### 6. `summerblue/administrator` 后台管理

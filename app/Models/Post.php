@@ -8,6 +8,14 @@ class Post extends Model
 {
     protected $guarded=[];
 
+    //帖子自定义链接
+    public function link(){
+        if (empty($this->slug)){
+            return route('posts.show', ['post'=>$this]);
+        }
+        return route('posts.show', ['slug'=>$this->slug]);
+    }
+
     //关联用户
     public function user(){
         return $this->belongsTo(User::class);
