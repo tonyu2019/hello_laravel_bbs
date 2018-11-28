@@ -28,3 +28,5 @@ Route::resource('categories', 'Index\CategoryController')->only('show');
 
 /*回复模块*/
 Route::resource('replies', 'Index\ReplyController', ['only'=>['store', 'destroy']]);
+//通知控制器
+Route::resource('notifications', 'Index\NotificationsController', ['only' => ['index']]);

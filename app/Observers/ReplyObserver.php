@@ -11,6 +11,7 @@ namespace App\Observers;
 
 
 use App\Models\Reply;
+use App\Notifications\PostReplied;
 
 class ReplyObserver
 {
@@ -21,6 +22,8 @@ class ReplyObserver
     //回复成功文章回复数+1
     public function saved(Reply $reply){
         $reply->post->increment('reply_count');
+        //通知作者，有新的回复
+        $reply->post->user->notify(new PostReplied($reply));
     }
 
     //删除回复文章回复数-1
