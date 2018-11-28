@@ -11,7 +11,7 @@ $factory->define(\App\Models\Post::class, function (Faker $faker) {
     $created_at = $faker->dateTimeThisMonth($updated_at);
     return [
         'title'=>$faker->realText(30),
-        'body'=>$faker->realText(500),
+        'body'=>$faker->realText(1200),
         'user_id'       => $faker->randomElement($user_ids),
         'category_id'   => $faker->randomElement($categroy_ids),
         'created_at'=> $created_at,

@@ -8478,3 +8478,26 @@ body {
   color: #adb1af;
 }
 
+.posts-show-page .meta {
+  font-size: .9em;
+  color: #b3b3b3;
+}
+
+.posts-show-page .reply-content {
+  margin: 6px 0;
+}
+
+.post-reply hr {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.post-reply a {
+  color: inherit;
+}
+
+.post-reply .meta {
+  font-size: .9em;
+  color: #b3b3b3;
+}
+

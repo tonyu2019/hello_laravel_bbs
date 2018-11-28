@@ -26,6 +26,11 @@ class Post extends Model
         return $this->belongsTo(Category::class);
     }
 
+    //关联回复
+    public function replies(){
+        return $this->hasMany(Reply::class);
+    }
+
     //scope判断是最新回复还是最新发布
     public function scopeWithOrder($query, $order){
         if ($order=='publish'){

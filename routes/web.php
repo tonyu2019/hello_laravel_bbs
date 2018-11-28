@@ -25,3 +25,6 @@ Route::post('upload_image', 'Index\PostController@uploadImage')->name('posts.upl
 
 /*分类模块*/
 Route::resource('categories', 'Index\CategoryController')->only('show');
+
+/*回复模块*/
+Route::resource('replies', 'Index\ReplyController', ['only'=>['create', 'store']]);

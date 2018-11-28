@@ -32,4 +32,9 @@ class User extends Authenticatable
     public function posts(){
         return $this->hasMany(Post::class);
     }
+
+    //关联回复
+    public function replies(){
+        return $this->hasMany(Reply::class);
+    }
 }

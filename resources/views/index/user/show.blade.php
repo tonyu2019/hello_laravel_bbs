@@ -30,10 +30,15 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a href="#">Ta 的帖子</a></li>
-                        <li><a href="#">Ta 的回复</a></li>
+                        <li @if(is_active(url()->full(), request()->path().'?order=publish'))class="active"@endif><a href="{{route('users.show', $user->id)}}?order=publish">Ta 的帖子</a></li>
+                        <li @if(!is_active(url()->full(), request()->path().'?order=publish'))class="active"@endif><a href="{{route('users.show', $user->id)}}?order=default">Ta 的回复</a></li>
                     </ul>
-                    @include('index.layout._user_post')
+                    @if(is_active(url()->full(), request()->path().'?order=publish'))
+                        @include('index.layout._user_post')
+                    @else
+                        @include('index.user._replies', ['replies' => $user->replies()->with('post')->paginate(5)])
+                    @endif
+
                 </div>
             </div>
         </div>

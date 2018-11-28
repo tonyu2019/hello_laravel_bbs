@@ -167,9 +167,7 @@ Uploader = (function(superClass) {
         };
       })(this),
       error: (function(_this) {
-
         return function(xhr, status, err) {
-
           return _this.trigger('uploaderror', [file, xhr, status]);
         };
       })(this),
@@ -181,7 +179,6 @@ Uploader = (function(superClass) {
         };
       })(this),
       complete: (function(_this) {
-
         return function(xhr, status) {
           return _this.trigger('uploadcomplete', [file, xhr.responseText]);
         };

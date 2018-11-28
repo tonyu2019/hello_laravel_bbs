@@ -91,7 +91,7 @@ class postController extends BaseController
      */
     public function show(Request $request, $slug)
     {
-        $post = Post::where('slug', $slug)->first() ? Post::where('slug', $slug)->first() : Post::where('id', $slug)->first();
+        $post = Post::where('slug', $slug)->first() ? Post::where('slug', $slug)->with('user','replies')->first() : Post::where('id', $slug)->with('user','replies')->first();
         if (empty($post)) {
             abort('404', '别瞎折腾了');
         } else {
