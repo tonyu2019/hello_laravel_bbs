@@ -27,4 +27,4 @@ Route::post('upload_image', 'Index\PostController@uploadImage')->name('posts.upl
 Route::resource('categories', 'Index\CategoryController')->only('show');
 
 /*回复模块*/
-Route::resource('replies', 'Index\ReplyController', ['only'=>['create', 'store']]);
+Route::resource('replies', 'Index\ReplyController', ['only'=>['store', 'destroy']]);

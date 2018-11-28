@@ -4,7 +4,7 @@
     <ul class="list-group">
         @foreach ($replies as $reply)
             <li class="list-group-item">
-                <a href="">
+                <a href="{{ $reply->post->link() }}">
                     {{ $reply->post->title }}
                 </a>
 

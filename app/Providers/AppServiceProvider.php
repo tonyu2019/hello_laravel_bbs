@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use App\Models\Post;
+use App\Models\Reply;
 use App\Observers\PostObserver;
+use App\Observers\ReplyObserver;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
@@ -21,6 +23,8 @@ class AppServiceProvider extends ServiceProvider
         \Carbon\Carbon::setLocale('zh');
         //监听post模型事件
         Post::observe(PostObserver::class);
+        //监听Reply模型事件
+        Reply::observe(ReplyObserver::class);
     }
 
     /**

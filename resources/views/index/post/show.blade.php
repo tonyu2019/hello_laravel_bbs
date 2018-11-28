@@ -31,6 +31,7 @@
         {{-- 用户回复列表 --}}
         <div class="panel panel-default post-reply">
             <div class="panel-body">
+                @includeWhen(Auth::check(), 'index.post._reply_box', ['post' => $post])
                 <div class="reply-list">
                     @foreach ($post->replies()->with('user')->get() as $index => $reply)
                         <div class="media"  name="reply{{ $reply->id }}" id="reply{{ $reply->id }}">
