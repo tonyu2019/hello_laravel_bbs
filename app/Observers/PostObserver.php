@@ -4,8 +4,8 @@
  * */
 namespace App\Observers;
 
-use App\Models\Category;
 use App\Models\Post;
+use Illuminate\Support\Facades\DB;
 
 class PostObserver{
     public function saving(Post $post){
@@ -17,4 +17,8 @@ class PostObserver{
         dd($post);
         Category::where('id', $post->category_id)->increment('post_sums');
     }*/
+
+    public function deleted(Post $post){
+        DB::table('replies')->where('post_id', $post->id)->delete();
+    }
 }

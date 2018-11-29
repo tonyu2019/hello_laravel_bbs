@@ -20,6 +20,7 @@ class ReplyPolicy
      */
     public function delete(User $user, Reply $reply)
     {
-        return $user->id==$reply->user()->id;
+        //dd($user->id, $reply->user);
+        return $user->id==$reply->user->id;
     }
 }
