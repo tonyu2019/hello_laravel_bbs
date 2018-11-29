@@ -29,5 +29,13 @@ class UsersTableSeeder extends Seeder
         \App\Models\User::create($hou);
         factory(\App\Models\User::class)->times(10)->create();
 
+        // 初始化用户角色，将 1 号用户指派为『站长』
+        $user = \App\Models\User::find(1);
+        $user->assignRole('Founder');
+
+        // 将 2 号用户指派为『管理员』
+        $user = \App\Models\User::find(2);
+        $user->assignRole('Maintainer');
+
     }
 }
