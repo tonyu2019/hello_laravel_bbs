@@ -53,14 +53,14 @@
                         </a>
 
                         <ul class="dropdown-menu">
-                            @can('manage_contents')
+                            @if(Auth::user()->hasAnyRole(['Founder','Maintainer']))
                                 <li>
                                     <a href="/admin">
                                         <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span>
                                         管理后台
                                     </a>
                                 </li>
-                            @endcan
+                            @endif
                             <li>
                                 <a href="{{route('users.show', Auth::id())}}"><span class="glyphicon glyphicon-user"></span> 个人中心</a>
                             </li>

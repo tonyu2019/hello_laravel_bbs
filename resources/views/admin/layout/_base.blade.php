@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="zh-cn">
-
 <head>
     <title>@yield('title')-后台管理</title>
     <meta charset="utf-8">
@@ -163,8 +162,8 @@
                     <li><a href="app-chat.html"><i class="icon-speech"></i><span>回复</span></a></li>
                     <li class="heading">用户</li>
                     <li><a href="{{route('admin.users')}}"><i class="icon-users"></i><span>用户</span></a></li>
-                    <li><a href="{{route('roles.index')}}"><i class="icon-magic-wand"></i><span>角色</span></a></li>
-                    <li><a href="{{route('permissions.index')}}"><i class="icon-lock"></i><span>权限</span></a></li>
+                    @if(Auth::user()->hasRole('Founder'))<li><a href="{{route('roles.index')}}"><i class="icon-magic-wand"></i><span>角色</span></a></li>
+                    <li><a href="{{route('permissions.index')}}"><i class="icon-lock"></i><span>权限</span></a></li>@endif
                     <li class="heading">系统</li>
                     <li><a href="app-inbox.html"><i class="icon-settings"></i><span>设置</span></a></li>
                 </ul>

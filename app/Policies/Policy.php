@@ -11,7 +11,7 @@ class Policy
 
 
     public function before($user, $ability){
-        if ($user->can('manage_contents')){
+        if ($user->hasAnyRole(['Founder','Maintainer'])){
             return true;
         }
         return false;

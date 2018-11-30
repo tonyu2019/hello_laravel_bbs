@@ -13,13 +13,13 @@
                     <div class="article">{!! $post->body !!}</div>
                     @can('update', $post)
                     <hr>
-                    <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-default btn-xs" role="button">
+                    <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-default btn-xs">
                         <i class="glyphicon glyphicon-edit"></i> 编辑
                     </a>
-                    <form action="{{ route('posts.destroy', $post->id) }}" method="post">
+                    <form action="{{ route('posts.destroy', $post->id) }}" method="post" style=" display: inline;">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
-                        <button type="submit" class="btn btn-default btn-xs pull-left" style="margin-left: 6px">
+                        <button type="submit" class="btn btn-default btn-xs" style="margin-left: 6px">
                             <i class="glyphicon glyphicon-trash"></i>
                             删除
                         </button>
@@ -78,7 +78,7 @@
                 @if($post->user->avatar)
                     <img class="img-responsive img-circle center-block" src="{{$post->user->avatar}}">
                 @else
-                    <img class="img-responsive img-circle" src="https://iocaffcdn.phphub.org/uploads/images/201709/20/1/PtDKbASVcz.png?imageView2/1/w/600/h/600">
+                    <img class="img-responsive img-circle" src="/uploads/avatar/aratar_485.jpg">
                 @endif
                 <hr>
                 <p class="text-center">{{$post->user->name}}<br>{{$post->user->email}}</p>

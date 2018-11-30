@@ -36,7 +36,13 @@ Route::resource('notifications', 'Index\NotificationsController', ['only' => ['i
 /*后台首页*/
 Route::get('admin', 'Admin\IndexController@index')->name('admin.index');
 Route::get('admin/posts', 'Admin\PostController@index')->name('admin.posts');
+
 Route::get('admin/users', 'Admin\UserController@index')->name('admin.users');
+Route::get('admin/users/create', 'Admin\UserController@create')->name('admin.users.create');
+Route::post('admin/users', 'Admin\UserController@store')->name('admin.users.store');
+Route::get('admin/users/{user}/edit', 'Admin\UserController@edit')->name('admin.users.edit');
+Route::put('admin/users/{user}', 'Admin\UserController@update')->name('admin.users.update');
+Route::delete('admin/users/{user}', 'Admin\UserController@destroy')->name('admin.users.destroy');
 /*权限*/
 Route::resource('admin/permissions', 'Admin\PermissionController');
 /*角色*/

@@ -9,16 +9,19 @@ use Spatie\Permission\Models\Role;
 class RoleController extends BaseController
 {
     public function index(){
+        $this->authorize('role_index');
         $roles=Role::paginate(10);
         return view('admin.role.index', compact('roles'));
     }
 
     public function create(){
+        $this->authorize('role_add');
         $permissions=Permission::all();
         return view('admin.role.create', compact('permissions'));
     }
 
     public function store(Request $request, Role $role){
+        $this->authorize('role_add');
         $role->name=$request->name;
         $role->title=$request->title;
         DB::beginTransaction();
@@ -33,11 +36,13 @@ class RoleController extends BaseController
     }
 
     public function edit(Role $role){
+        $this->authorize('role_edit');
         $permissions=Permission::all();
         return view('admin.role.create', compact('role', 'permissions'));
     }
 
     public function update(Role $role, Request $request){
+        $this->authorize('role_edit');
         $role->name=$request->name;
         $role->title=$request->title;
         DB::beginTransaction();
@@ -52,6 +57,7 @@ class RoleController extends BaseController
     }
 
     public function destroy(Role $role){
+        $this->authorize('role_del');
         if ($role->delete()){
             return redirect()->route('roles.index')->with('success','删除角色成功');
 
