@@ -44,7 +44,7 @@
 
                                     @foreach($permissions as $permission)
                                     <label class="fancy-checkbox">
-                                        <input type="checkbox" name="permissions[]" value="{{$permission->id}}"@if($role->permissions->contains('id', $permission->id)) checked @endif>
+                                        <input type="checkbox" name="permissions[]" value="{{$permission->id}}"@if(isset($role) && $role->permissions->contains('id', $permission->id)) checked @endif>
                                         <span>{{$permission->title}}</span>
                                     </label>
                                     @endforeach
