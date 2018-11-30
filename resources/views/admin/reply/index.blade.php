@@ -1,16 +1,16 @@
 @extends('admin.layout._base')
-@section('title', '帖子管理')
+@section('title', '回复管理')
 @section('body')
     <div class="container-fluid">
         <div class="block-header">
             <div class="row">
                 <div class="col-lg-5 col-md-8 col-sm-12">
-                    <h2>POST</h2>
+                    <h2>REPLY</h2>
                 </div>
                 <div class="col-lg-7 col-md-4 col-sm-12 text-right">
                     <ul class="breadcrumb justify-content-end">
                         <li class="breadcrumb-item"><a href="/"><i class="icon-home"></i></a></li>
-                        <li class="breadcrumb-item">帖子</li>
+                        <li class="breadcrumb-item">回复</li>
                         <li class="breadcrumb-item active">首页</li>
                     </ul>
                 </div>
@@ -21,7 +21,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="header">
-                        <h2>帖子列表</h2>
+                        <h2>回复列表</h2>
                     </div>
                     <div class="body">
                         @include('index.layout._message')
@@ -36,15 +36,14 @@
                                         </label>
                                     </th>
                                     <th>作者</th>
-                                    <th>标题</th>
-                                    <th>分类</th>
-                                    <th>回复数量</th>
+                                    <th>内容</th>
+                                    <th>回复至</th>
                                     <th>更新时间</th>
                                     <th>操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($posts as $post)
+                                @foreach($replies as $reply)
                                 <tr>
                                     <td style="width: 50px;">
                                         <label class="fancy-checkbox">
@@ -53,21 +52,20 @@
                                         </label>
                                     </td>
                                     <td>
-                                        <img src="{{$post->user->avatar}}" class="rounded-circle avatar" alt="">
-                                        <p class="c_name">{{$post->user->name}}</p>
+                                        <img src="{{$reply->user->avatar}}" class="rounded-circle avatar" alt="">
+                                        <p class="c_name">{{$reply->user->name}}</p>
                                     </td>
                                     <td>
-                                        {{$post->title}}
+                                        {{mb_substr($reply->content,0, 50)}}
                                     </td>
                                     <td>
-                                        {{$post->category->name}}
-                                    </td>
-                                    <td><span class="text-primary"><i class="icon-bubbles"></i> {{$post->reply_count}}</span></td>
-                                    <td>
-                                        {{$post->updated_at}}
+                                        {{$reply->post->title}}
                                     </td>
                                     <td>
-                                        <form action="{{route('admin.posts.destroy', $post->id)}}" method="post" style="display: inline;">{{csrf_field()}}{{method_field('DELETE')}}<button type="submit" class="btn btn-danger js-sweetalert"><i class="fa fa-trash-o"></i></button></form>
+                                        {{$reply->updated_at}}
+                                    </td>
+                                    <td>
+                                        <form action="{{route('admin.replies.destroy', $reply->id)}}" method="post" style="display: inline;">{{csrf_field()}}{{method_field('DELETE')}}<button type="submit" class="btn btn-danger js-sweetalert"><i class="fa fa-trash-o"></i></button></form>
                                     </td>
                                 </tr>
                                     @endforeach
@@ -80,7 +78,7 @@
                             </div>
                             <div class="col-sm-12 col-md-7">
                                 <div class="pull-right">
-                                    {{$posts->links('vendor.pagination.admin')}}
+                                    {{$replies->links('vendor.pagination.admin')}}
                                 </div>
                             </div>
                         </div>

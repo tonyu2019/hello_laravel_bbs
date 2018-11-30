@@ -17,11 +17,13 @@ class UserController extends BaseController
     }
 
     public function create(){
+        $this->authorize('user_add');
         $roles=Role::orderBy('id', 'desc')->get();
         return view('admin.user.create_edit', compact('roles'));
     }
 
     public function store(Request $request, User $user){
+        $this->authorize('user_add');
         $this->validate($request, [
             'email' => 'required|unique:users'
         ],[
@@ -45,11 +47,13 @@ class UserController extends BaseController
     }
 
     public function edit(User $user){
+        $this->authorize('user_edit');
         $roles=Role::orderBy('id', 'desc')->get();
         return view('admin.user.create_edit', compact('roles', 'user'));
     }
 
     public function update(User $user, Request $request){
+        $this->authorize('user_edit');
         $user->name=$request->name;
         $user->email    = $request->email;
         $user->password      = $request->password;
@@ -66,6 +70,7 @@ class UserController extends BaseController
     }
 
     public function destroy(User $user){
+        $this->authorize('user_del');
         if ($user->delete()){
             return redirect()->route('admin.users')->with('success','删除用户成功');
 

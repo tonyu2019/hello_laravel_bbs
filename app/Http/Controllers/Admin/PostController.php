@@ -10,4 +10,11 @@ class PostController extends BaseController
         $posts=Post::with('user', 'category')->paginate(10);
         return view('admin.post.index', compact('posts'));
     }
+
+    public function destroy(Post $post)
+    {
+        $this->authorize('post_del');
+        $post->delete();
+        return redirect()->route('admin.posts')->with('success', '帖子成功删除');
+    }
 }

@@ -36,6 +36,10 @@ Route::resource('notifications', 'Index\NotificationsController', ['only' => ['i
 /*后台首页*/
 Route::get('admin', 'Admin\IndexController@index')->name('admin.index');
 Route::get('admin/posts', 'Admin\PostController@index')->name('admin.posts');
+Route::delete('admin/posts/{post}', 'Admin\PostController@destroy')->name('admin.posts.destroy');
+
+Route::get('admin/replies', 'Admin\ReplyController@index')->name('admin.replies');
+Route::delete('admin/replies/{reply}', 'Admin\ReplyController@destroy')->name('admin.replies.destroy');
 
 Route::get('admin/users', 'Admin\UserController@index')->name('admin.users');
 Route::get('admin/users/create', 'Admin\UserController@create')->name('admin.users.create');
