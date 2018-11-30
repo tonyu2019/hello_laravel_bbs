@@ -1,4 +1,5 @@
 @extends('admin.layout._base')
+@section('title', '首页')
 @section('body')
     <div class="container-fluid">
         <div class="block-header">

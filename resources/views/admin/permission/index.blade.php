@@ -1,16 +1,17 @@
 @extends('admin.layout._base')
+@section('title', '权限管理')
 @section('body')
     <div class="container-fluid">
         <div class="block-header">
             <div class="row">
                 <div class="col-lg-5 col-md-8 col-sm-12">
-                    <h2>User List</h2>
+                    <h2>PERMISSION</h2>
                 </div>
                 <div class="col-lg-7 col-md-4 col-sm-12 text-right">
                     <ul class="breadcrumb justify-content-end">
                         <li class="breadcrumb-item"><a href="index.html"><i class="icon-home"></i></a></li>
-                        <li class="breadcrumb-item">Table</li>
-                        <li class="breadcrumb-item active">Table Example</li>
+                        <li class="breadcrumb-item">权限</li>
+                        <li class="breadcrumb-item active">首页</li>
                     </ul>
                 </div>
             </div>

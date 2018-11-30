@@ -1,16 +1,17 @@
 @extends('admin.layout._base')
+@section('title', isset($role) ? '修改角色' : '添加角色')
 @section('body')
     <div class="container-fluid">
         <div class="block-header">
             <div class="row">
                 <div class="col-lg-5 col-md-8 col-sm-12">
-                    <h2>Form Validation</h2>
+                    <h2>ROLE</h2>
                 </div>
                 <div class="col-lg-7 col-md-4 col-sm-12 text-right">
                     <ul class="breadcrumb justify-content-end">
                         <li class="breadcrumb-item"><a href="index.html"><i class="icon-home"></i></a></li>
-                        <li class="breadcrumb-item">Forms</li>
-                        <li class="breadcrumb-item active">Form Validation</li>
+                        <li class="breadcrumb-item">角色</li>
+                        <li class="breadcrumb-item active">{{isset($role) ? '修改' : '添加'}}</li>
                     </ul>
                 </div>
             </div>

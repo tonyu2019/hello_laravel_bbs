@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'Index\IndexController@index');
+Route::get('/', 'Index\IndexController@index')->name('index.index');
 
 Auth::routes();
 
@@ -34,9 +34,9 @@ Route::resource('notifications', 'Index\NotificationsController', ['only' => ['i
 /*后台*/
 
 /*后台首页*/
-Route::get('admin', 'Admin\IndexController@index');
-Route::get('admin/posts', 'Admin\PostController@index');
-Route::get('admin/users', 'Admin\UserController@index');
+Route::get('admin', 'Admin\IndexController@index')->name('admin.index');
+Route::get('admin/posts', 'Admin\PostController@index')->name('admin.posts');
+Route::get('admin/users', 'Admin\UserController@index')->name('admin.users');
 /*权限*/
 Route::resource('admin/permissions', 'Admin\PermissionController');
 /*角色*/
