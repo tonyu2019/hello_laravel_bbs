@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="{{asset('static/css/font-awesome.min.css')}}">
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="{{asset('static/css/main.css')}}">
+    <link rel="stylesheet" href="{{asset('static/css/color_skins.css')}}">
+
 </head>
 <body class="theme-blue">
 
