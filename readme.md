@@ -1,5 +1,7 @@
 # Laravel BBS 学习版
  该项目来源依据【Laravel 教程 - Web 开发实战进阶 ( Laravel 5.5 )】教程进行编写，借鉴了教程中优雅的书写方式和利用插件的便捷性，但同时也摒弃了教程中一些对新手来说有一定的疑问或学习障碍的一部分书写方式。
+ 前台界面基本如官方，后台界面因为没有使用教程中提供的插件，自己找了套bootstrap模板。预览如下
+ ![enter description here](https://raw.githubusercontent.com/646547989/hello_laravel_bbs/master/public/uploads/shot.jpg)
 ## 该项目推荐的插件：
 #### 1. `mews/captcha` 验证码插件
 安装方式：`composer require "mews/captcha:~2.0"`
