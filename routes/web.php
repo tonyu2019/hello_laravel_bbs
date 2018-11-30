@@ -30,3 +30,15 @@ Route::resource('categories', 'Index\CategoryController')->only('show');
 Route::resource('replies', 'Index\ReplyController', ['only'=>['store', 'destroy']]);
 //通知控制器
 Route::resource('notifications', 'Index\NotificationsController', ['only' => ['index']]);
+
+/*后台*/
+
+/*后台首页*/
+Route::get('admin', 'Admin\IndexController@index');
+Route::get('admin/posts', 'Admin\PostController@index');
+Route::get('admin/users', 'Admin\UserController@index');
+/*权限*/
+Route::resource('admin/permissions', 'Admin\PermissionController');
+/*角色*/
+Route::resource('admin/roles', 'Admin\RoleController');
+

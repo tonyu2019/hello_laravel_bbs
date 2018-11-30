@@ -6,8 +6,10 @@ use App\Models\Post;
 use App\Models\Reply;
 use App\Observers\PostObserver;
 use App\Observers\ReplyObserver;
+use App\Observers\RoleObserver;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
+use Spatie\Permission\Models\Role;
 
 class AppServiceProvider extends ServiceProvider
 {
