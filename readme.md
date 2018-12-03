@@ -4,19 +4,15 @@
  ![enter description here](https://raw.githubusercontent.com/646547989/hello_laravel_bbs/master/public/uploads/shot.jpg)
 ## 该项目推荐的插件：
 #### 1. `mews/captcha` 验证码插件
-安装方式：`composer require "mews/captcha:~2.0"` 
-
+安装方式：`composer require "mews/captcha:~2.0"`  
 生成配置：`php artisan vendor:publish --provider='Mews\Captcha\CaptchaServiceProvider'`  
-
 git 地址：[https://github.com/mewebstudio/captcha](https://github.com/mewebstudio/captcha "https://github.com/mewebstudio/captcha")
 #### 2. 教程开发windows数据库推荐
 官方推荐使用 HeidiSQL， 本人这里还是强烈推荐Navicat，一个安装包不管你连接本地、远程；MySql，SQL Server，SQLite，甚至是Oracle都完美支持，关键还是中文的。
 #### 3. `Debugbar` 页面调优
 很推荐的插件，像一个诊断器，很清晰的让你明白问题在哪儿？哪儿需要优化
 安装方式：`composer require "barryvdh/laravel-debugbar:~3.1" --dev`  
-
 生成配置：`php artisan vendor:publish --provider="Barryvdh\Debugbar\ServiceProvider"`  
-
 git 地址：[https://github.com/barryvdh/laravel-debugbar](https://github.com/barryvdh/laravel-debugbar "https://github.com/barryvdh/laravel-debugbar")
 #### 4. `Simditor`文本编辑器
 相对于百度的editor小小小，但是功能齐全，界面简洁美观，很喜欢的一个编辑器
