@@ -24,9 +24,10 @@ git 地址：[https://github.com/mycolorway/simditor/](https://github.com/mycolo
 > 注：本次发现这个编辑器还是有bug的，官方并未修复，bug1：图片过大会超过编辑器宽度，特别丑，编辑器css里定义一下max-width；bug2：后台验证图片上传失败编辑框里会给你转化一个base64的图片编码……
 #### 5. `HTMLPurifier` XSS过滤器
 永远不要相信用户的输入，选他就对了
-安装方式：`composer require "mews/purifier:~2.0"`
-生成配置：`php artisan vendor:publish --provider="Mews\Purifier\PurifierServiceProvider"`
-git 地址：[https://github.com/mewebstudio/Purifier](https://github.com/mewebstudio/Purifier "https://github.com/mewebstudio/Purifier")
+安装方式：`composer require "mews/purifier:~2.0"`  
+生成配置：`php artisan vendor:publish --provider="Mews\Purifier\PurifierServiceProvider"`  
+git 地址：[https://github.com/mewebstudio/Purifier](https://github.com/mewebstudio/Purifier "https://github.com/mewebstudio/Purifier")  
+abcd
 #### 6. `Laravel-permission` 用户角色权限
 这个插件放在推荐或者不推荐里很纠结，真的是要看个人了。之前ThinkPHP里用的AUTH验证，感觉也蛮简单的，在Laravel里还没比较使用过。
 安装方式：`composer require "spatie/laravel-permission:~2.7"`
