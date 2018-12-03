@@ -22,12 +22,11 @@ git 地址：[https://github.com/mycolorway/simditor/](https://github.com/mycolo
 永远不要相信用户的输入，选他就对了
 安装方式：`composer require "mews/purifier:~2.0"`  
 生成配置：`php artisan vendor:publish --provider="Mews\Purifier\PurifierServiceProvider"`  
-git 地址：[https://github.com/mewebstudio/Purifier](https://github.com/mewebstudio/Purifier "https://github.com/mewebstudio/Purifier")  
-abcd
+git 地址：[https://github.com/mewebstudio/Purifier](https://github.com/mewebstudio/Purifier "https://github.com/mewebstudio/Purifier")
 #### 6. `Laravel-permission` 用户角色权限
-这个插件放在推荐或者不推荐里很纠结，真的是要看个人了。之前ThinkPHP里用的AUTH验证，感觉也蛮简单的，在Laravel里还没比较使用过。
-安装方式：`composer require "spatie/laravel-permission:~2.7"`
-生成配置：`php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider" --tag="config"`
+这个插件放在推荐或者不推荐里很纠结，真的是要看个人了。之前ThinkPHP里用的AUTH验证，感觉也蛮简单的，在Laravel里还没比较使用过。  
+安装方式：`composer require "spatie/laravel-permission:~2.7"`  
+生成配置：`php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider" --tag="config"`  
 git 地址：[https://github.com/spatie/laravel-permission](https://github.com/spatie/laravel-permission "https://github.com/spatie/laravel-permission")
 
 ## 教程中使用但是不推荐的插件
